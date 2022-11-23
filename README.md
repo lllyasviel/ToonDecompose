@@ -35,7 +35,7 @@ But I have also tried different versions and many versions should work.
 
 # Hello Violet
 
-In the folder "data/violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://en.wikipedia.org/wiki/Violet_Evergarden)
+In the folder "data/violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://en.wikipedia.org/wiki/Violet_Evergarden).
 
 A screenshot is like this:
 
@@ -44,7 +44,7 @@ A screenshot is like this:
 This Violet example is a good input because
 
 * It is small. Downloading is fast.
-* It is real. The Violet is from a REAL animation in the real productions, NOT some toy examples synthesized in some university labs. *(Violet Evergarden is generally considered one of KyoAni's peaks, and is the most well-produced anime between 2015 and 2022.)*
+* It is real. This Violet is from a REAL animation in the real productions, NOT some toy examples synthesized in some university labs. *(Violet Evergarden is generally considered one of KyoAni's peaks, and is the most well-produced anime between 2015 and 2022.)*
 * It is challenging. The motion is very large. The girl is running. Even latest optical flow methods and correspondence-based decomposition methods would fail in this example.
 
 Because of these, we use this example as a typical test.
