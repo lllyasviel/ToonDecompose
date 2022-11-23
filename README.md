@@ -102,7 +102,7 @@ For example,
 
 Each flow has a "npy" file of original flow and a "png" image of visualization.
 
-## Step 1: Warmup Object Alpha
+## Step 1: Warmup Coarse Object Alpha
 
 Run this to start this step
 
@@ -111,6 +111,75 @@ Run this to start this step
 In this step, we will warmup the alpha of each object with a method to analyze the "flow inside/outside each objects". A more detailed explanation can be found the section 3.2 of our SA2022 paper (see also the Citation section).
 
 ![i3](github_page/i3.png)
+
+After the computation (about 40 minutes on Nvidia GTX 3070), you should be able to see the alpha masks in "workers\violet\preview_labels":
+
+![i4](github_page/i4.png)
+
+## Step 2: Warmup Coarse (Homography Matrices) Transforms & Step 3: Preview the Transforms
+
+Run this to start this step
+
+    python step_2_warmup_h.py
+    python step_3_preview_warmup.py
+
+In this step we initialize a sequence of homography matrix for each component sprite by approximating the previous optical flows.
+
+If the script works properly, you should see the a video that visualizing the transforms in "workers\violet\preview_position.mp4"
+
+![i4](github_page/position.gif)
+
+A MP4 file of the example output can be download [here](github_page/position.mp4).
+
+Note that we requires not some "similar" outputs on your device - we want your outputs to be EXACTLY THE SAME.
+
+If you cannot reproduce the exactly same mp4 output at this step, you are not likely to achieve same outputs in the future steps, since all future optimizations are sensitive to initial parameters.
+
+If you cannot get the same output at this stage, you can open a GitHub Issue so that I can take a look at your case.
+
+My tests on different devices are:
+
+    GTX 3070 - OK
+    GTX 3070 Ti - OK
+    GTX 3070 TI Laptop GPU - OK
+    GTX 980m - Not exactly same but still works with similar outputs
+    CPU mode without GPU - Failed
+    GTX 1050 - Failed
+    GTX 3050 - Failed
+    GTX 1660 - Not exactly same but still works, outputs are not very similar
+
+As you can see, the output is subject to some strange effects due to the gpu specifications. We currently do not know what is causing this.
+
+## Step 4: Learning Sprites
+
+Run this to start this step
+
+    python step_4_sprite_learning_s1.py
+    python step_5_sprite_learning_s2.py
+
+At this stage we actually optimize the sprites jointly. Some methods involved in this optimization is introduced in that SA2022 paper (see also the Citation section). Note that since I am still actively working on this project, the scripts may have some updates over time (see also the TODO section).
+
+## Step 6: Output the Sprites/Components
+
+Run this to start this step
+
+    python step_6_video.py
+
+This will output all sprites/components in the folder "workers\violet\vis"
+
+![i5](github_page/i5.png)
+
+To be specific, for the frame N, we will have
+
+    N.img.png - the original frame image
+    N.homo.png - the visualized final homography 
+    N.obj.K.png - the N-th frame of the K-th sprite/component
+
+Also, a mp4 file will be generated at "workers\violet\vis.mp4"
+
+![i5](github_page/i6.gif)
+
+Then you can use those results to some other applications! 
 
 # Citation
 
