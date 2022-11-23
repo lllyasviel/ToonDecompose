@@ -102,6 +102,16 @@ For example,
 
 Each flow has a "npy" file of original flow and a "png" image of visualization.
 
+## Step 1: Warmup Object Alpha
+
+Run this to start this step
+
+    python step_1_warmup_alpha.py
+
+In this step, we will warmup the alpha of each object with a method to analyze the "flow inside/outside each objects". A more detailed explanation can be found the section 3.2 of our SA2022 paper (see also the Citation section).
+
+![i3](github_page/i3.png)
+
 # Citation
 
 The following paper describes several methods used in this project. 
