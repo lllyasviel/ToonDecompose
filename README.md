@@ -35,7 +35,7 @@ But I have also tried different versions and many versions should work.
 
 # Hello Violet
 
-In the folder "data/violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://www.youtube.com/results?search_query=Violet+Evergarden).
+In the folder "data\violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://www.youtube.com/results?search_query=Violet+Evergarden).
 
 A screenshot is like this:
 
@@ -49,7 +49,7 @@ This Violet example is a good input because
 
 Because of these, we use this example as a typical test.
 
-### Configuration
+## Configuration
 
 In "config.py", line 8, we can edit the codes to target a directory for frames
 
@@ -64,9 +64,43 @@ Besides, the number of objects is specified at line 39:
 
 By default it is 2.
 
-### Step 0: Compute Optical Flows
+## Step 0: Compute Optical Flows
 
-By default it is 2.
+Run this to start this step
+
+    python step_0_optical_flow.py
+
+If this works properly, you should see the optical flows computed in "workers\violet\flow".
+
+![i2](github_page/i2.png)
+
+Note that the direction of the flows are visualized with the normal ball (different from mainstream visualizations that use hue wheels). The advantage is that the scale of visualization is invariant across different flow instances.
+
+![i2](github_page/n.png)
+
+Ideally, we should compute all flows from N frames to N frames, resulting in N*N flow instances, but that requires too much computation power. In most cases, using a window of 6 frame yields good enough results.
+
+To be specific, we compute 4 flows for each frame at the step of 2, like:
+
+    Flow from frame N to frame N - 3
+    Flow from frame N to frame N - 1
+    Flow from frame N to frame N + 1
+    Flow from frame N to frame N + 3
+
+For example,
+
+    ...
+    Flow from frame 9 to frame 6 (stored as "workers\violet\flow\9T6.npy")
+    Flow from frame 9 to frame 8 (stored as "workers\violet\flow\9T8.npy")
+    Flow from frame 9 to frame 10 (stored as "workers\violet\flow\9T10.npy")
+    Flow from frame 9 to frame 12 (stored as "workers\violet\flow\9T12.npy")
+    Flow from frame 10 to frame 7 (stored as "workers\violet\flow\10T7.npy")
+    Flow from frame 10 to frame 9 (stored as "workers\violet\flow\10T9.npy")
+    Flow from frame 10 to frame 11 (stored as "workers\violet\flow\10T11.npy")
+    Flow from frame 10 to frame 13 (stored as "workers\violet\flow\10T13.npy")
+    ...
+
+Each flow has a "npy" file of original flow and a "png" image of visualization.
 
 # Citation
 
