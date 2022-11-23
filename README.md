@@ -35,7 +35,7 @@ But I have also tried different versions and many versions should work.
 
 # Hello Violet
 
-In the folder "data/violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://en.wikipedia.org/wiki/Violet_Evergarden).
+In the folder "data/violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://www.youtube.com/results?search_query=Violet+Evergarden).
 
 A screenshot is like this:
 
@@ -51,7 +51,18 @@ Because of these, we use this example as a typical test.
 
 ## Step 1: Configuration
 
-123
+In "config.py", line 8, we can edit the codes to target a directory for frames
+
+    task_name = 'violet'
+    input_path = './data/' + task_name + '/'
+
+The "task_name" can be edited to read different examples, like your own inputs. We highly encourage to first use the default "task_name" to see whether the codes work as expected.
+
+Besides, the number of objects is specified at line 39:
+
+    number_of_objects = 2
+
+By default it is 2.
 
 # Citation
 
