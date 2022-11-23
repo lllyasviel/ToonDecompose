@@ -108,7 +108,7 @@ Run this to start this step
 
     python step_1_warmup_alpha.py
 
-In this step, we will warmup the alpha of each object with a method to analyze the "flow inside/outside each objects". A more detailed explanation can be found the section 3.2 of our SA2022 paper (see also the Citation section).
+In this step, we will warmup the alpha of each object with a method to analyze the "flow inside/outside each objects". A more detailed explanation can be found the section 3.2 of our SA2022 paper (see also the [Citation](#Citation) section).
 
 ![i3](github_page/i3.png)
 
@@ -157,7 +157,7 @@ Run this to start this step
     python step_4_sprite_learning_s1.py
     python step_5_sprite_learning_s2.py
 
-At this stage we actually optimize the sprites jointly. Some methods involved in this optimization is introduced in that SA2022 paper (see also the Citation section). Note that since I am still actively working on this project, the scripts may have some updates over time (see also the TODO section).
+At this stage we actually optimize the sprites jointly. Some methods involved in this optimization is introduced in that SA2022 paper (see also the [Citation](#Citation) section). Note that since I am still actively working on this project, the scripts may have some updates over time (see also the [TODO](#TODO) section).
 
 ## Step 6: Output the Sprites/Components
 
@@ -196,7 +196,7 @@ The following paper describes several methods used in this project.
 
 The above paper has a [project page]().
 
-# TODO List
+# TODO
 
 * refactor the code and increase readability.
 * make a separated branch for that SA2022 paper and include codes that corresponds more precisely to the paper.
