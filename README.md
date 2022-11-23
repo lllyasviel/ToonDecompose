@@ -16,7 +16,7 @@ Note that we do NOT want to require users to give any masks of objects, and the 
 
 Besides, this project use [RAFT](https://github.com/princeton-vl/RAFT) to compute optical flows. Since the optical flow is the only introduced external model prior, trying other models like [FlowNet2](https://github.com/NVIDIA/flownet2-pytorch) are definitely some other options.
 
-We have also published an academic paper (in SIGGRAPH Asia 2022) during the conducting of this project (See also the Citation section).
+We have also published an academic paper (in SIGGRAPH Asia 2022) during the conducting of this project (See also the [Citation](#Citation) section).
 
 # Installation
 
