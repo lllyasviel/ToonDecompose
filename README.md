@@ -49,7 +49,7 @@ This Violet example is a good input because
 
 Because of these, we use this example as a typical test.
 
-## Step 1: Configuration
+### Configuration
 
 In "config.py", line 8, we can edit the codes to target a directory for frames
 
@@ -61,6 +61,10 @@ The "task_name" can be edited to read different examples, like your own inputs. 
 Besides, the number of objects is specified at line 39:
 
     number_of_objects = 2
+
+By default it is 2.
+
+### Step 0: Compute Optical Flows
 
 By default it is 2.
 
