@@ -12,7 +12,7 @@ The **outputs** are
 * All components' contents (sequential images).
 * All components' transforms (sequential homography matrices).
 
-Note that we do **NOT** want to require users to give any masks of objects, and the entire processing can be fully automatic (unless users want to indicate some instructions, in some special use cases).
+Note that we do NOT want to require users to give any masks of objects, and the entire processing can be fully automatic (unless users want to indicate some instructions, in some special use cases).
 
 Besides, this project use [RAFT](https://github.com/princeton-vl/RAFT) to compute optical flows. Since the optical flow is the only introduced external model prior, trying other models like [FlowNet2](https://github.com/NVIDIA/flownet2-pytorch) are definitely some other options.
 
@@ -35,6 +35,24 @@ But I have also tried different versions and many versions should work.
 
 # Hello Violet
 
+In the folder "data/violet", we include a sequence of 78 frames (000.png ~ 077.png), sampled from the animation ["Violet Evergarden"](https://en.wikipedia.org/wiki/Violet_Evergarden)
+
+A screenshot is like this:
+
+![i1](github_page/i1.png)
+
+This Violet example is a good input because
+
+* It is small. Downloading is fast.
+* It is real. The Violet is from a REAL animation in the real productions, NOT some toy examples synthesized in some university labs. *(Violet Evergarden is generally considered one of KyoAni's peaks, and is the most well-produced anime between 2015 and 2022.)*
+* It is challenging. The motion is very large. The girl is running. Even latest optical flow methods and correspondence-based decomposition methods would fail in this example.
+
+Because of these, we use this example as a typical test.
+
+## Step 1: Configuration
+
+123
+
 # Citation
 
 The following paper describes several methods used in this project. 
@@ -47,6 +65,8 @@ The following paper describes several methods used in this project.
        volume    = 31,
        number    = 1,
     }
+
+The above paper has a [project page]().
 
 # TODO List
 
