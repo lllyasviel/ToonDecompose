@@ -202,6 +202,10 @@ The above paper has a [project page](https://lllyasviel.github.io/Style2PaintsRe
 * make a separated branch for that SA2022 paper and include codes that corresponds more precisely to the paper.
 * include some download links of more example inputs (with copyrights).
 
+# See Also
+
+Some related projects are [NeRF](https://www.matthewtancik.com/nerf), [Neural Atlas](https://layered-neural-atlases.github.io/), [Deformable Sprites](https://deformable-sprites.github.io/), and [Omnimatte](https://omnimatte.github.io/).
+
 # 中文社区
 
 我们有一个除了技术什么东西都聊的以技术交流为主的群。如果你一次加群失败，可以多次尝试: 816096787。
