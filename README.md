@@ -194,7 +194,7 @@ The following paper describes several methods used in this project.
        number    = 1,
     }
 
-The above paper has a [project page](https://lllyasviel.github.io/Style2PaintsResearch/sa2022/index.html).
+The above paper has a [project page](https://lllyasviel.github.io/GitPageToonDecompose/).
 
 # TODO
 
