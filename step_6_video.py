@@ -1,3 +1,5 @@
+USE_ALPHA_OUTPUTS = False
+
 import shutil
 import os
 import cv2
@@ -158,7 +160,16 @@ for test_frame in range(T):
         else:
             mask = mask_output[:, :, c:c+1]
             result = gt_bgr_output * mask + 48 * (1 - mask)
-        cv2.imwrite(vis_path + str(test_frame) + '.obj.' + str(c) + '.png', result.clip(0, 255).astype(np.float32))
+        if not USE_ALPHA_OUTPUTS:
+            cv2.imwrite(vis_path + str(test_frame) + '.obj.' + str(c) + '.png', result.clip(0, 255).astype(np.float32))
+        else:
+            if c == 0:
+                alpha_output = result
+            else:
+                mask = mask_output[:, :, c:c + 1]
+                color = gt_bgr_output
+                alpha_output = np.concatenate([color, mask], axis=2)
+            cv2.imwrite(vis_path + str(test_frame) + '.obj.' + str(c) + '.png', alpha_output.clip(0, 255).astype(np.float32))
         frame[1 * H:2 * H, c * W:c * W + W, :] = result
     print(test_frame)
     out.write(frame.clip(0, 255).astype(np.uint8))
