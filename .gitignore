@@ -1,1 +1,4 @@
 workers/
+.idea/
+*.pyc
+__pycache__/
