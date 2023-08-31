@@ -166,7 +166,7 @@ for test_frame in range(T):
             if c == 0:
                 alpha_output = result
             else:
-                mask = mask_output[:, :, c:c + 1]
+                mask = mask_output[:, :, c:c + 1] * 255
                 color = gt_bgr_output
                 alpha_output = np.concatenate([color, mask], axis=2)
             cv2.imwrite(vis_path + str(test_frame) + '.obj.' + str(c) + '.png', alpha_output.clip(0, 255).astype(np.float32))
