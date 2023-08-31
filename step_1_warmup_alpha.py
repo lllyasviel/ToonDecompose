@@ -23,7 +23,7 @@ FN, TN, H, W, _ = FLOWS.shape
 
 FLOWS = torch.from_numpy(FLOWS).to(device)
 FRAMES = torch.from_numpy(FRAMES).to(device)
-LABELS = torch.zeros(size=(FN, TN, H, W), dtype=torch.int) - 1
+LABELS = torch.zeros(size=(FN, TN, H, W), dtype=torch.int).to(device) - 1
 
 pscoder = PositionalEncoder(frequency_number=6)
 mlp_hs = [IMLP(input_dim=24, output_dim=6, hidden_dim=256, num_layers=6).to(device)] + \
